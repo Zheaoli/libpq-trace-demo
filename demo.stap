@@ -1,0 +1,20 @@
+probe process("/lib64/libpq.so").function("PQconnectdb") {
+    print_ubacktrace()
+}
+
+probe process("/lib64/libpq.so").function("PQexec") {
+    print_ubacktrace()
+}
+
+probe process("/lib64/libpq.so").function("PQresultStatus") {
+    print_ubacktrace()
+}
+
+probe process("/lib64/libpq.so").function("PQclear") {
+    print_ubacktrace()
+}
+
+
+probe process("/lib64/libpq.so").function("PQfinish") {
+    print_ubacktrace()
+}

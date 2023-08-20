@@ -1,0 +1,7 @@
+probe process("/lib64/libpq.so").function("PQexec") {
+    print_ubacktrace()
+}
+
+probe process("/lib64/libpq.so").function("PQsendQuery") {
+    print_ubacktrace()
+}
